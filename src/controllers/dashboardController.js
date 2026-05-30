@@ -3,7 +3,7 @@ const Transaction = require("../models/Transaction");
 
 const getDashboard = async (req, res) => {
     try {
-        const userId = req.user.id;
+        const userId = req.user.id || req.user._id;
 
         const wallet = await Wallet.findOne({
             user: userId,
